@@ -53,8 +53,8 @@ jobs:
       - name: Query database
         run: |
           psql -h postgres -d postgres_db -U postgres_user -c 'SELECT 1;'
-          psql -h postgres -d postgres_db -U postgres_user -c 'CREATE TABLE names(user_id serial PRIMARY KEY, name VARCHAR);'
-          psql -h postgres -d postgres_db -U postgres_user -c 'INSERT INTO names (name) VALUES ('Bob');'
+          psql -h postgres -d postgres_db -U postgres_user -c 'CREATE TABLE names (id serial PRIMARY KEY, name VARCHAR);'
+          psql -h postgres -d postgres_db -U postgres_user -c "INSERT INTO names (name) VALUES ('Bob');"
           psql -h postgres -d postgres_db -U postgres_user -c "SELECT * FROM names;"
         env:
           # postgress password is required; alternatively, you can run:
